@@ -5,7 +5,7 @@ import {showAlert} from './alerts'
 
 export const login = async (email, password) => {
     try {
-        const response = await fetch('http://localhost:3000/api/v1/users/login', {
+        const response = await fetch('/api/v1/users/login', {
           
             method: 'POST',
             headers: {
@@ -31,18 +31,18 @@ export const login = async (email, password) => {
              showAlert('error',dataResponse.message);
         }
 
-        console.log(dataResponse);
+     
     } catch (error) {
-        console.log(error.message);
+   
         showAlert('error',error.message);
     }
 };
 
 
 export const logout=async()=>{
-    console.log("LOGGED OUT");
+   
     try{
- const response = await fetch('http://localhost:3000/api/v1/users/logout', {
+ const response = await fetch('/api/v1/users/logout', {
           
             method: 'GET',
          
@@ -54,7 +54,7 @@ export const logout=async()=>{
             location.reload(true)
         }
          else{
-            console.log(dataResponse);
+         
              showAlert('error',dataResponse.message);
         }
     }

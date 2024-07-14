@@ -9,7 +9,7 @@ const Booking = require('../models/bookingModel');
 exports.getCheckoutSession = catchAsync(async (req, res, next) => {
   const tour = await Tour.findById(req.params.tourId);
 
-  console.log(tour.price);
+
 
 
   const session = await stripe.checkout.sessions.create({
@@ -36,7 +36,7 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
     client_reference_id: req.params.tourID,
 
   })
-  console.log(session);
+
   res.status(200).json({
     status: "success",
     session

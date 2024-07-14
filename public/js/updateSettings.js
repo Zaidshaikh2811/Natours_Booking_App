@@ -3,9 +3,9 @@ import axios from 'axios';
 import {showAlert} from './alerts'
 
 export const updateSettings = async (data,type) => {
-console.log("inside form");
+
     try {
-        const url=type==='password'?"http://localhost:3000/api/v1/users/updateMyPassword":"http://localhost:3000/api/v1/users/updateMe "
+        const url=type==='password'?"/api/v1/users/updateMyPassword":"/api/v1/users/updateMe "
         // const response = await fetch(url, {
           
         //     method: 'PATCH',
@@ -20,7 +20,7 @@ console.log("inside form");
             url,
             data
         });
-        console.log(dataResponse);
+     
  if (dataResponse.status==="success") {
           showAlert('success',`${type} Updated Successfully`)
          

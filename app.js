@@ -15,7 +15,7 @@ const xss = require('xss-clean');
 const hpp = require('hpp');
 const path = require("path")
 const cookieParser = require('cookie-parser');
-
+const compression = require("compression")
 
 const app = express();
 
@@ -84,6 +84,8 @@ app.all("*", (req, res, next) => {
 
   next(new AppError(`Cant Find ${req.originalUrl} on the Server`, 404))
 });
+
+app.use(compression());
 
 app.use(globalErrorHandler)
 
