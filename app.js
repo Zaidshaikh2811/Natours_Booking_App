@@ -8,6 +8,7 @@ const viewRouter = require("./routes/viewRouter");
 const bookingRoutes = require("./routes/bookingRoutes");
 const AppError = require("./utils/appError")
 const globalErrorHandler = require('./contollers/errorController')
+
 const rateLimit = require('express-rate-limit')
 const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
@@ -18,6 +19,8 @@ const cookieParser = require('cookie-parser');
 const compression = require("compression")
 
 const app = express();
+
+app.enable('trust proxy')
 
 app.set('view engine', 'pug')
 app.set('views', path.join(__dirname, 'views'))
