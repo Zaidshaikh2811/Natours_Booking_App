@@ -2,8 +2,8 @@
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 
-process.on('uncaughtException',err=>{
-  console.log(err.name,err.message);
+process.on('uncaughtException', err => {
+  console.log(err.name, err.message);
   process.exit(1)
 
 })
@@ -16,30 +16,30 @@ const DB = process.env.DATABASE.replace(
 );
 
 mongoose.connect(DB
-//   ,{
-//    useNewUrlParser: true,
-//    useCreateIndex:true,
-//    useFindAndModify:false
-//  }
-).then((con)=>{
+  //   ,{
+  //    useNewUrlParser: true,
+  //    useCreateIndex:true,
+  //    useFindAndModify:false
+  //  }
+).then((con) => {
   // console.log(con.connection);
   console.log(`Database connected successfully`);
-}).catch(err=> console.log("ERROR"));
+}).catch(err => console.log("ERROR"));
 
 const app = require("./app");
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 
-const server=app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log("listening");
 });
 
 
 
-process.on('unhandledRejection',err=>{
-  console.log(err.name,err.message);
-  server.close(()=>{
+process.on('unhandledRejection', err => {
+  console.log(err.name, err.message);
+  server.close(() => {
     process.exit(1)
   })
 })
