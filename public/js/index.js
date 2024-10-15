@@ -16,10 +16,12 @@ const passwordUpdate = document.querySelector('.form-user-settings')
 const bookButton = document.querySelector(".bookTour")
 
 
-
 if (loginForm) {
+
+
   loginForm.addEventListener('submit', e => {
     e.preventDefault();
+    console.log("SSS");
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 

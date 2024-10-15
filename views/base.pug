@@ -1,37 +1,24 @@
-doctype html 
+doctype html
 html(lang='en')
   head
     block head
-      meta(charset="UTF-8" )
-      meta( name="viewport" content="width=device-width, initial-scale=1.0")
-      
-      meta( http-equiv="Content-Security-Policy" content="script-src 'self' https://cdnjs.cloudflare.com")
+      meta(charset="UTF-8")
+      meta(name="viewport" content="width=device-width, initial-scale=1.0")
+      meta(http-equiv="Content-Security-Policy" content="script-src 'self' https://cdnjs.cloudflare.com")
       link(rel="stylesheet" href="/css/style.css")
       link(rel='shortcut icon' type="image/png" href='/img/favicon.png')
-      link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Lato:300,300i,700")
-      title Natours  - The Ultimate Travel Company
+      link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300i,700")
+      title Natours - The Ultimate Travel Company
 
-
-  body 
+  body
     include _header
 
-    block content 
-      h1 this is a placeHolder Heading
+    block content
+      h1 This is a placeholder heading
 
-    include _footer        
+    include _footer
 
-      //- script(src="/js/login.js")
-    script(src="/js/bundle.js") 
-      //- script(src="../js/bundle.js")
-  
-  
-
-
-
-
-
-
-
-
-
-
+    script(src="/js/login.js" type="module")
+    script(src="/js/index.js" type="module")
+    //- script(src="/js/bundle.js" type="module")
+    //- script(src="/js/login.js")

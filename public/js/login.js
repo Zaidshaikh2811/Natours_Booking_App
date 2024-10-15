@@ -1,12 +1,11 @@
 /* eslint-disable */
 
-import {showAlert} from './alerts'
-
 
 export const login = async (email, password) => {
+    console.log(email, password);
     try {
         const response = await fetch('/api/v1/users/login', {
-          
+
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -17,48 +16,50 @@ export const login = async (email, password) => {
             })
         });
 
-     
+
         const dataResponse = await response.json();
 
-           if (dataResponse.status==="success") {
-          showAlert('success',"Logged in successfully")
-          window.setTimeout(()=>{
-            location.assign('/')
-          },1500)
+        if (dataResponse.status === "success") {
+            showAlert('success', "Logged in successfully")
+            window.setTimeout(() => {
+                location.assign('/')
+            }, 1500)
 
         }
-        else{
-             showAlert('error',dataResponse.message);
+        else {
+            // showAlert('error', dataResponse.message);
+            alert(dataResponse.message)
         }
 
-     
+
     } catch (error) {
-   
-        showAlert('error',error.message);
+
+        // showAlert('error', error.message);
+        alert(dataResponse.message)
     }
 };
 
 
-export const logout=async()=>{
-   
-    try{
- const response = await fetch('/api/v1/users/logout', {
-          
+export const logout = async () => {
+
+    try {
+        const response = await fetch('/api/v1/users/logout', {
+
             method: 'GET',
-         
+
         });
 
-     
+
         const dataResponse = await response.json();
-        if(dataResponse.status==='success'){
+        if (dataResponse.status === 'success') {
             location.reload(true)
         }
-         else{
-         
-             showAlert('error',dataResponse.message);
+        else {
+
+            showAlert('error', dataResponse.message);
         }
     }
-    catch(error){
-        showAlert('error',"Error logging out")
+    catch (error) {
+        showAlert('error', "Error logging out")
     }
 }
